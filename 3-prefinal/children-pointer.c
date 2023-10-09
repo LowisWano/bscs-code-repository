@@ -60,13 +60,6 @@ void preorder(Tree T, Node node){
   }
 }
 
-void inorder(Tree T, Node node){
-  if(node!=NULL){
-    inorder(T, T.nodes[node->elem]);
-    for()
-  }
-}
-
 void insert(int elem, int parent, Tree *T){
   if(elem >= 0 && elem < MAX){
     if(parent == ROOT){     // if element to be inserted is the root
