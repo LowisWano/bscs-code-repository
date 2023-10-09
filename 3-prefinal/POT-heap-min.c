@@ -10,6 +10,8 @@ typedef struct{
 void initHeap(Heap *H);
 void insert(Heap *H, int elem);
 void preorder(Heap H, int node);
+void inorder(Heap H, int node);
+void postorder(Heap H, int node);
 
 int main(void){
   Heap H;
@@ -30,11 +32,34 @@ int main(void){
   printf("\nPreorder: ");
   preorder(H, 0);
 
+  printf("\nInorder: ");
+  inorder(H, 0);
+
+  printf("\nPost-order: ");
+  postorder(H, 0);
+
   printf("\n");
 }
 
+void postorder(Heap H, int node){
+  if(node <= H.last){
+    postorder(H, (node*2)+1);
+    postorder(H, (node*2)+2);
+    printf("%d, ", H.Elem[node]);
+  }
+}
+
+// challenge: instead of printing, insert to a new list array
+void inorder(Heap H, int node){
+  if(node <= H.last){
+    inorder(H, (node*2)+1);
+    printf("%d, ", H.Elem[node]);
+    inorder(H, (node*2)+2);
+  }
+}
+
 void preorder(Heap H, int node){
-  if(node < MAX && H.Elem[node]!=-1){
+  if(node <= H.last){
     printf("%d, ", H.Elem[node]);
     preorder(H, (node*2)+1);
     preorder(H, (node*2)+2);
@@ -47,7 +72,7 @@ void insert(Heap *H, int elem){
   if(H->last < MAX){
     // insert
     H->Elem[++H->last] = elem;
-    
+
     // swap child and parent if POT is not satisfied
     int temp;
     int c = H->last;
