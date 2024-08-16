@@ -1,5 +1,5 @@
 # DSA-GRIND
-<img src="./_.jpeg" />
+<img src="./hd.jpg"/>
 2ND YEAR SEASONNNNNN
 
 ## Pre-midterm
