@@ -7,9 +7,6 @@
 - ADT Stack
 - ADT Queue
 
-## Intuition
-- Master the fundamental operations of ADT and learn how to apply them to exam scenarios/problems. Exams often have problems that will require you to combine operations to perform various tasks e.g. creating a function that searches through a pre-existing list, finding certain elements that satisfies a condition, deleting those elements from the original list, and creating a new list populated with the deleted elements.
-
 ## Types of Data Structure Implementation
 - Array
 - Linked List
