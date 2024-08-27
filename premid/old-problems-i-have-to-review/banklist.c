@@ -35,11 +35,9 @@ typedef struct node{
     struct node *next;
 }Node;
 
-//ACT
 bool withdraw(Node *x, int userId, int withdraw);
 bool transferUser(Node *x, int userId, int bankID);
 bool sendMoney(Node *x, int userIdFrom, int userIdTo, int transferMoney);
-//ACT
 
 void displayUser(Node *x);
 bool registerUser(Node *x, int id, User user);
