@@ -57,7 +57,11 @@ void enqueue(Queue *Q, char elem){
 }
 
 char peek(Queue Q){
-  return Q.elem[Q.rear];
+  if(Q.front < 0){
+    printf("\nqueue is empty!");
+    return '0';
+  }
+  return Q.elem[Q.front];
 }
 
 void displayQueue(Queue Q){
