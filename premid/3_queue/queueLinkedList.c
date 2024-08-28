@@ -21,6 +21,8 @@ void enqueue(Queue *Q, char elem);
 // deletes front, does not do anything if queue is empty
 void dequeue(Queue *Q);
 
+char peek(Queue Q);
+
 void displayQueue(Queue Q);
 
 int main(void){
@@ -38,6 +40,9 @@ int main(void){
   printf("\nlets enqueue another element!: ");
   enqueue(&Q, 'D');
   displayQueue(Q);
+    
+    
+  printf("\npeek on the value of front: %c", peek(Q));
   return 0;
 }
 
@@ -63,6 +68,10 @@ void enqueue(Queue *Q, char elem){
     }
     Q->rear = temp;
   }
+}
+
+char peek(Queue Q){
+  return Q.front->elem;
 }
 
 void displayQueue(Queue Q){
