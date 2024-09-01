@@ -1,9 +1,5 @@
 # DSA-GRIND
-<img src="./personaa.webp"/>
 2ND YEAR SEASONNNNNN
-
-## Personal To-Dos and Reminders
-- Learn how to use header files and separating C code into modules.
 
 ## Pre-midterm
 - ADT List

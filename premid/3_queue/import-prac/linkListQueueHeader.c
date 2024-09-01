@@ -1,4 +1,4 @@
-#include "./header.h"
+#include "./linkListQueueHeader.h"
 
 void dequeue(Queue *Q){
     nodePtr temp;
