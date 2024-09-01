@@ -33,7 +33,6 @@ void displayQueue(Queue Q){
     for(i=0;i<=Q.rear;i++){
       printf("%c ", Q.elem[i]);
     }
-    printf("\nrear: %d", Q.rear);
   }else{
     printf("queue is empty!");
   }

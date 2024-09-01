@@ -1,4 +1,5 @@
-#include "linkListQueueHeader.h"
+// #include "linkListQueueHeader.h"
+#include "arrayQueueHeader.h"
 
 int main(void){
   Queue Q;
@@ -17,6 +18,6 @@ int main(void){
   displayQueue(Q);
     
     
-  printf("\npeek on the value of front: %c", peek(Q));
+  printf("\npeek on the value of front: %c\n", peek(Q));
   return 0;
 }
