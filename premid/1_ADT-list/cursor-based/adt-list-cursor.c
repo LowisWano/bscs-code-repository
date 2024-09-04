@@ -37,3 +37,76 @@ void deallocSpace(VirtualHeap *VH, int index){
   VH->nodes[index].next = VH->avail;
   VH->avail = index;
 }
+
+/**
+ * ADT LIST Operations:
+ * Works just like linked list, but instead of pointers, its indexes.
+ */
+void insertFirst(VirtualHeap *VH, List *L, char elem){
+  List temp = allocSpace(VH);
+  if(temp != -1){
+    VH->nodes[temp].elem = elem;
+    VH->nodes[temp].next = *L;
+    *L = temp;
+  }
+}
+
+void insertSorted(VirtualHeap *VH, List *L, char elem){
+  List *trav, temp = allocSpace(VH);
+  if(temp != -1){
+    for(trav=L;*trav!=-1 && VH->nodes[*trav].elem < elem;trav=&(VH->nodes[*trav].next)){}
+    
+    VH->nodes[temp].elem = elem;
+    VH->nodes[temp].next = *trav;
+    *trav = temp;
+    
+  }
+}
+
+void deleteFirstOcc(VirtualHeap *VH, List *L, char elem){
+  List *trav, temp;
+  for(trav=L;*trav!=-1 && VH->nodes[*trav].elem != elem;trav=&(VH->nodes[*trav].next)){}
+  if(*trav != -1){
+    temp = *trav;
+    *trav = VH->nodes[*trav].next;
+    deallocSpace(VH, temp);
+  }
+}
+
+void deleteAllOcc(VirtualHeap *VH, List *L, char elem){
+  List *trav, temp;
+  for(trav=L;*trav!=-1;){
+    if(VH->nodes[*trav].elem == elem){
+      temp = *trav;
+      *trav = VH->nodes[*trav].next;
+      deallocSpace(VH, temp);
+    }else{
+      trav=&(VH->nodes[*trav].next);
+    }
+  }
+}
+
+void deleteAll(VirtualHeap *VH, List *L){
+  if(*L != -1){
+    List *trav, temp;
+    for(trav=L;*trav!=-1;){
+      temp = *trav;
+      *trav = VH->nodes[*trav].next;
+      deallocSpace(VH, temp);
+    }
+  }
+}
+
+void displayList(VirtualHeap VH, List L){
+  List trav;
+  if(L != -1){
+    for(trav=L;trav!=-1;trav=VH.nodes[trav].next){
+      printf("%c ", VH.nodes[trav].elem);
+    }
+  }else{
+    printf("list is empty!");
+  }
+  
+  printf("\n");
+}
+

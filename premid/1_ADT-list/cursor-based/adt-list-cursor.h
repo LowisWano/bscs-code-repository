@@ -32,18 +32,20 @@ void deallocSpace(VirtualHeap *VH, int index);
 /**
  * ADT LIST Operations
  */
-void insertFirst(VirtualHeap *VH, List L, char elem);
-void insertSorted(VirtualHeap *VH, List L, char elem);
-void insertLast(VirtualHeap *VH, List L, char elem);
+void insertFirst(VirtualHeap *VH, List *L, char elem);
+void insertSorted(VirtualHeap *VH, List *L, char elem);
+void insertLast(VirtualHeap *VH, List *L, char elem);
 
-void deleteFirstOcc(VirtualHeap *VH, List L, char elem);
-void deleteAllOcc(VirtualHeap *VH, List L, char elem);
+void deleteFirstOcc(VirtualHeap *VH, List *L, char elem);
+void deleteAllOcc(VirtualHeap *VH, List *L, char elem);
 
 /**
  * Utility Functions
  */
+void testInsertFunction(void (*insert)(VirtualHeap *VH, List *L, char elem), VirtualHeap *VH, List *L, char elem, char *name);
 void displayList(VirtualHeap VH, List L);
 int listIsEqualSorted(VirtualHeap VH);
 int listIsEqualUnsorted(VirtualHeap VH);
+void deleteAll(VirtualHeap *VH, List *L);
 
 #endif
