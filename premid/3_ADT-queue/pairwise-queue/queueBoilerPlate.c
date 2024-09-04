@@ -1,5 +1,5 @@
-// #include "linkListQueueHeader.h"
-#include "arrayQueueHeader.h"
+#include "./link-header/linkListQueueHeader.h"
+// #include "./array-header/arrayQueueHeader.h"
 
 int main(void){
   Queue Q;

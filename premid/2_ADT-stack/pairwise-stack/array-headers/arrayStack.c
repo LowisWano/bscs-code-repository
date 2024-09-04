@@ -24,13 +24,13 @@ int TOP(Stack S){
 void displayStack(Stack S){
   if(S.top >= 0){
     int i;
-    for(i=0;i<=S.top;i++){
+    for(i=S.top;i>=0;i--){
       printf("%d ", S.elem[i]);
     }
   }else{
     printf("stack is empty!");
   }
-  printf("\n");
+  printf("\n \n");
 }
 
 int isEmpty(Stack S){
