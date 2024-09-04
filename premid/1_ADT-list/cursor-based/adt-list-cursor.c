@@ -42,6 +42,7 @@ void deallocSpace(VirtualHeap *VH, int index){
  * ADT LIST Operations:
  * Works just like linked list, but instead of pointers, its indexes.
  */
+
 void insertFirst(VirtualHeap *VH, List *L, char elem){
   List temp = allocSpace(VH);
   if(temp != -1){
@@ -60,6 +61,16 @@ void insertSorted(VirtualHeap *VH, List *L, char elem){
     VH->nodes[temp].next = *trav;
     *trav = temp;
     
+  }
+}
+
+void insertLast(VirtualHeap *VH, List *L, char elem){
+  List *trav, temp = allocSpace(VH);
+  if(temp != -1){
+    for(trav=L;*trav!=-1;trav=&(VH->nodes[*trav].next)){}
+    VH->nodes[temp].elem = elem;
+    VH->nodes[temp].next = *trav;
+    *trav = temp;
   }
 }
 
@@ -86,6 +97,9 @@ void deleteAllOcc(VirtualHeap *VH, List *L, char elem){
   }
 }
 
+/**
+ * Utility Functions
+ */
 void deleteAll(VirtualHeap *VH, List *L){
   if(*L != -1){
     List *trav, temp;

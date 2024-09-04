@@ -1,6 +1,6 @@
 #include "adt-list-cursor.h"
 
-void testInsertFunction(void (*insert)(VirtualHeap *VH, List *L, char elem), VirtualHeap *VH, List *L, char elem, char *name){
+void testInsertFunction(void (*insert)(VirtualHeap *VH, List *L, char elem), VirtualHeap *VH, List *L, char *name){
   char data[] = {'E', 'C', 'B', 'A', 'D', '\0'};
   printf("Test for %s: \n", name);
   deleteAll(VH, L);
@@ -21,12 +21,17 @@ int main(void){
   /**
    * Test insertFirst() function
    */
-  testInsertFunction(insertFirst, &VH, &head, 'E', "insertFirst");
+  testInsertFunction(insertFirst, &VH, &head, "insertFirst");
   
   /**
    * Test insertSorted() function
    */
-  testInsertFunction(insertSorted, &VH, &head, 'E', "insertSorted");
+  testInsertFunction(insertSorted, &VH, &head, "insertSorted");
+
+  /**
+   * Test insertLast() function
+   */
+  testInsertFunction(insertLast, &VH, &head, "insertLast");
   
   return 0;
 }

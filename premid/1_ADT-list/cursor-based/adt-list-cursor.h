@@ -42,7 +42,7 @@ void deleteAllOcc(VirtualHeap *VH, List *L, char elem);
 /**
  * Utility Functions
  */
-void testInsertFunction(void (*insert)(VirtualHeap *VH, List *L, char elem), VirtualHeap *VH, List *L, char elem, char *name);
+void testInsertFunction(void (*insert)(VirtualHeap *VH, List *L, char elem), VirtualHeap *VH, List *L, char *name);
 void displayList(VirtualHeap VH, List L);
 int listIsEqualSorted(VirtualHeap VH);
 int listIsEqualUnsorted(VirtualHeap VH);
