@@ -1,13 +1,12 @@
 #include "adt-list-cursor.h"
 
 void testInsertFunction(void (*insert)(VirtualHeap *VH, List *L, char elem), VirtualHeap *VH, List *L, char elem, char *name){
+  char data[] = {'D', 'A', 'B', 'C', 'E', '\0'};
   printf("Test for %s: \n", name);
   deleteAll(VH, L);
-  insert(VH, L, 'E');
-  insert(VH, L, 'C');
-  insert(VH, L, 'B');
-  insert(VH, L, 'A');
-  insert(VH, L, 'D');
+  for(int i=0; data[i] != '\0'; i++){
+    insert(VH, L, data[i]);
+  }
   displayList(*VH, *L);
   printf("\n");
 }
