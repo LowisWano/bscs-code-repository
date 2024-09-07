@@ -100,6 +100,10 @@ void deleteAllOcc(VirtualHeap *VH, List *L, char elem){
 /**
  * Utility Functions
  */
+int listIsEqualSorted(VirtualHeap VH){
+  // ...
+}
+
 void deleteAll(VirtualHeap *VH, List *L){
   if(*L != -1){
     List *trav, temp;
