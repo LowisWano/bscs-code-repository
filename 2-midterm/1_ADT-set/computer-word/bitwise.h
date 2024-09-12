@@ -4,8 +4,17 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int findThirdBit(int x);
-int findNBit(int x, int n);
-void displayBitPattern(int x);
+typedef unsigned int SET;
+int findThirdBit(SET x);
+int findNBit(SET x, int n);
+void displayBitPattern(SET x);
+void insertElem(SET *x, int elem);
+/*
+<< - MULTIPLY
+ex: 45 << 1 == 90
+
+>> - DIVIDE
+90 >> 1 == 45
+ */
 
 #endif
