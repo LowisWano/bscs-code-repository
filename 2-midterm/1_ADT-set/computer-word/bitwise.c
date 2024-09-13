@@ -18,6 +18,7 @@ void displayBitPattern(SET x){
   printf("\n");
 }
 
+// can't insert zero
 void insertElem(SET *x, int index){
   unsigned int mask = 1;
   *x |= mask << index - 1;
