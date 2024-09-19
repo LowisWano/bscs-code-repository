@@ -44,10 +44,16 @@ int main(void){
   HashTable ht;
   initDictionary(&ht);
 
-  Student s = createStudent("Paul", "BSCS", 23100371, 2);
-  insert(&ht, s);
+  Student s1 = createStudent("Paul", "BSCS", 23100371, 2);
+  Student s2 = createStudent("Raiken", "BSCS", 23100372, 2);
+  Student s3 = createStudent("Paula", "BSCS", 23100373, 2);
+  Student s4 = createStudent("Paulul", "BSCS", 23100370, 2);
+  insert(&ht, s1);
+  insert(&ht, s2);
+  insert(&ht, s3);
+  insert(&ht, s4);
   visualizeTable(ht);
-  delete(&ht, s);
+  delete(&ht, s1);
   visualizeTable(ht);
   return 0;
 }
