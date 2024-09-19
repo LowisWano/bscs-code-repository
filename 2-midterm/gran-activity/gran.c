@@ -97,9 +97,9 @@ void visualizeTable(HashTable ht){
   NodePtr trav;
   printf("\n");
   for(i=0;i<MAX;i++){
-    printf("%d -\t\t", i);
+    printf("%d -> ", i);
     for(trav = ht.elems[i]; trav!=NULL; trav=trav->link){
-      printf("[%d] %s - ", trav->stud.studID, trav->stud.studName);
+      printf("[%d] %s -> ", trav->stud.studID, trav->stud.studName);
     }
     if(trav == NULL){
       printf("NULL");
