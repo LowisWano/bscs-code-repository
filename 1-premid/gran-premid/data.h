@@ -2,7 +2,7 @@
 #define DATA_H
 
 typedef char String[30];
-
+ 
 typedef struct {
     int month;
     int day;

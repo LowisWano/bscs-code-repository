@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "Data.h"
+#include "./data.h"
 
 Date createDate(int month, int day, int year) {
     Date d;

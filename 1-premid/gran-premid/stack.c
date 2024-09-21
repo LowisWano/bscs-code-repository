@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "Data.h"
-#include "Stack.h"
+#include "data.h"
+#include "stack.h"
 
 void initInventory(Inventory *i) {
     i->top = NULL;

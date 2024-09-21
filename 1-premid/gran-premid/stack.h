@@ -2,7 +2,7 @@
 #define STACK_H
 
 #include <stdbool.h>
-#include "Data.h"
+#include "data.h"
 
 typedef struct node{
     Product prod;
