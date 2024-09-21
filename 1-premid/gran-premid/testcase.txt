@@ -1,0 +1,386 @@
+Sample Output 1
+
+Enter sequence or selection: (1-6): 4
+Enter the number of data: 8
+
+ORIGINAL PRODUCT:
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+016 | San Miguel Beer           | 4     | 12 Nov 2024 | 20 Mar 2021
+017 | Royal tru                 | 12    | 10 May 2026 | 20 Jan 2023
+018 | Sarsi                     | 28    | 07 May 2026 | 20 Jul 2020
+019 | Jaz Cola                  | 32    | 14 May 2026 | 20 Oct 2020
+020 | Pop Cola                  | 64    | 18 May 2026 | 20 Nov 2020
+021 | Cheers                    | 21    | 21 May 2026 | 20 Apr 2020
+022 | Lemo Lime                 | 3     | 12 May 2026 | 20 Mar 2021
+
+[1.] Adding Basi (16): Success
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+Count: 16
+
+[2.] Adding San Miguel Beer (4): Success
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+016 | San Miguel Beer           | 4     | 12 Nov 2024 | 20 Mar 2021
+Count: 20
+
+[3.] Adding Royal tru (12): Success
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+016 | San Miguel Beer           | 4     | 12 Nov 2024 | 20 Mar 2021
+017 | Royal tru                 | 12    | 10 May 2026 | 20 Jan 2023
+Count: 32
+
+[4.] Adding Sarsi (28): Success
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+016 | San Miguel Beer           | 4     | 12 Nov 2024 | 20 Mar 2021
+018 | Sarsi                     | 28    | 07 May 2026 | 20 Jul 2020
+017 | Royal tru                 | 12    | 10 May 2026 | 20 Jan 2023
+Count: 60
+
+[5.] Adding Jaz Cola (32): Success
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+016 | San Miguel Beer           | 4     | 12 Nov 2024 | 20 Mar 2021
+018 | Sarsi                     | 28    | 07 May 2026 | 20 Jul 2020
+017 | Royal tru                 | 12    | 10 May 2026 | 20 Jan 2023
+019 | Jaz Cola                  | 32    | 14 May 2026 | 20 Oct 2020
+Count: 92
+
+[6.] Adding Pop Cola (64): Fail
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+016 | San Miguel Beer           | 4     | 12 Nov 2024 | 20 Mar 2021
+018 | Sarsi                     | 28    | 07 May 2026 | 20 Jul 2020
+017 | Royal tru                 | 12    | 10 May 2026 | 20 Jan 2023
+019 | Jaz Cola                  | 32    | 14 May 2026 | 20 Oct 2020
+Count: 92
+
+[7.] Adding Cheers (21): Fail
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+016 | San Miguel Beer           | 4     | 12 Nov 2024 | 20 Mar 2021
+018 | Sarsi                     | 28    | 07 May 2026 | 20 Jul 2020
+017 | Royal tru                 | 12    | 10 May 2026 | 20 Jan 2023
+019 | Jaz Cola                  | 32    | 14 May 2026 | 20 Oct 2020
+Count: 92
+
+[8.] Adding Lemo Lime (3): Success
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+016 | San Miguel Beer           | 4     | 12 Nov 2024 | 20 Mar 2021
+018 | Sarsi                     | 28    | 07 May 2026 | 20 Jul 2020
+017 | Royal tru                 | 12    | 10 May 2026 | 20 Jan 2023
+022 | Lemo Lime                 | 3     | 12 May 2026 | 20 Mar 2021
+019 | Jaz Cola                  | 32    | 14 May 2026 | 20 Oct 2020
+Count: 95
+
+USING ADD PRODUCT:
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+016 | San Miguel Beer           | 4     | 12 Nov 2024 | 20 Mar 2021
+018 | Sarsi                     | 28    | 07 May 2026 | 20 Jul 2020
+017 | Royal tru                 | 12    | 10 May 2026 | 20 Jan 2023
+022 | Lemo Lime                 | 3     | 12 May 2026 | 20 Mar 2021
+019 | Jaz Cola                  | 32    | 14 May 2026 | 20 Oct 2020
+Count: 95
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sample Output 2
+
+Enter sequence or selection: (1-6): 2
+Enter the number of data: 10
+
+ORIGINAL PRODUCT:
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+009 | Kapeng Barako             | 12    | 11 Jan 2026 | 15 Jan 2024
+011 | Lambanog                  | 26    | 10 Sep 2024 | 20 Jan 2023
+013 | Bignay Wine               | 4     | 14 Nov 2023 | 20 Oct 2020
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+017 | Royal tru                 | 12    | 10 May 2026 | 20 Jan 2023
+019 | Jaz Cola                  | 32    | 14 May 2026 | 20 Oct 2020
+
+[1.] Adding Sago't Gulaman (30): Success
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+Count: 30
+
+[2.] Adding Calamansi Juice (60): Success
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+Count: 90
+
+[3.] Adding Melon Juice (18): Fail
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+Count: 90
+
+[4.] Adding Buko Juice (5): Success
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+Count: 95
+
+[5.] Adding Kapeng Barako (12): Fail
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+Count: 95
+
+[6.] Adding Lambanog (26): Fail
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+Count: 95
+
+[7.] Adding Bignay Wine (4): Success
+013 | Bignay Wine               | 4     | 14 Nov 2023 | 20 Oct 2020
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+Count: 99
+
+[8.] Adding Basi (16): Fail
+013 | Bignay Wine               | 4     | 14 Nov 2023 | 20 Oct 2020
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+Count: 99
+
+[9.] Adding Royal tru (12): Fail
+013 | Bignay Wine               | 4     | 14 Nov 2023 | 20 Oct 2020
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+Count: 99
+
+[10.] Adding Jaz Cola (32): Fail
+013 | Bignay Wine               | 4     | 14 Nov 2023 | 20 Oct 2020
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+Count: 99
+
+USING ADD PRODUCT:
+013 | Bignay Wine               | 4     | 14 Nov 2023 | 20 Oct 2020
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+Count: 99
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sample Output 3
+
+Enter sequence or selection: (1-6): 1
+Enter the number of data: 20
+
+ORIGINAL PRODUCT:
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+003 | Calamansi Juice           | 60    | 01 Oct 2024 | 12 May 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+006 | Guyabano Juice            | 49    | 01 Jan 2025 | 01 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+008 | Buko Pandan Drink         | 25    | 21 Jun 2024 | 06 Jun 2022
+009 | Kapeng Barako             | 12    | 11 Jan 2026 | 15 Jan 2024
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+011 | Lambanog                  | 26    | 10 Sep 2024 | 20 Jan 2023
+012 | Tuba                      | 12    | 07 Jul 2024 | 20 Jul 2020
+013 | Bignay Wine               | 4     | 14 Nov 2023 | 20 Oct 2020
+014 | Tapuy                     | 13    | 18 Dec 2026 | 20 Nov 2020
+015 | Basi                      | 16    | 21 Sep 2024 | 20 Apr 2020
+016 | San Miguel Beer           | 4     | 12 Nov 2024 | 20 Mar 2021
+017 | Royal tru                 | 12    | 10 May 2026 | 20 Jan 2023
+018 | Sarsi                     | 28    | 07 May 2026 | 20 Jul 2020
+019 | Jaz Cola                  | 32    | 14 May 2026 | 20 Oct 2020
+020 | Pop Cola                  | 64    | 18 May 2026 | 20 Nov 2020
+
+[1.] Adding Sago't Gulaman (30): Success
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+Count: 30
+
+[2.] Adding Guinumis (24): Success
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+Count: 54
+
+[3.] Adding Calamansi Juice (60): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+Count: 54
+
+[4.] Adding Mango Juice (15): Success
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+Count: 69
+
+[5.] Adding Melon Juice (18): Success
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+Count: 87
+
+[6.] Adding Guyabano Juice (49): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+Count: 87
+
+[7.] Adding Buko Juice (5): Success
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+Count: 92
+
+[8.] Adding Buko Pandan Drink (25): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+Count: 92
+
+[9.] Adding Kapeng Barako (12): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+Count: 92
+
+[10.] Adding Salabat (8): Success
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
+
+[11.] Adding Lambanog (26): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
+
+[12.] Adding Tuba (12): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
+
+[13.] Adding Bignay Wine (4): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
+
+[14.] Adding Tapuy (13): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
+
+[15.] Adding Basi (16): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
+
+[16.] Adding San Miguel Beer (4): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
+
+[17.] Adding Royal tru (12): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
+
+[18.] Adding Sarsi (28): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
+
+[19.] Adding Jaz Cola (32): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
+
+[20.] Adding Pop Cola (64): Fail
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
+
+USING ADD PRODUCT:
+002 | Guinumis                  | 24    | 12 May 2024 | 15 Jul 2023
+004 | Mango Juice               | 15    | 25 Dec 2024 | 06 Jun 2022
+001 | Sago't Gulaman            | 30    | 20 Jan 2025 | 20 Jan 2022
+007 | Buko Juice                | 5     | 23 May 2025 | 10 Sep 2022
+005 | Melon Juice               | 18    | 31 Jul 2025 | 01 Aug 2021
+010 | Salabat                   | 8     | 15 Jul 2029 | 12 Mar 2024
+Count: 100
