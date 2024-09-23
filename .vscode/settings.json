@@ -1,6 +1,10 @@
 {
   "files.associations": {
     "bitwise.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "array": "c",
+    "deque": "c",
+    "vector": "c",
+    "string_view": "c"
   }
 }
