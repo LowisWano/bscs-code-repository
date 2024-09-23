@@ -34,6 +34,9 @@ typedef struct{
   List rear;
 }Queue;
 
+// NEXT FUNCTION TO IMPLEMENT
+void enqueueSorted(VHeap *VH, Queue *Q, product elem);
+
 void enqueue(VHeap *VH, Queue *Q, product elem);
 void dequeue(VHeap *VH, Queue *Q);
 
@@ -99,6 +102,7 @@ void dequeue(VHeap *VH, Queue *Q){
   }
 }
 
+// you should make an isEmpty() function instead
 void displayQueue(VHeap VH, Queue Q){
   printf("\n");
   while(Q.front != -1){
