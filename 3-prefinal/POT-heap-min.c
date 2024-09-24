@@ -70,7 +70,6 @@ void insert(Heap *H, int elem){
 
   // check if last < max
   if(H->last < MAX){
-    // insert
     H->Elem[++H->last] = elem;
 
     int temp;
