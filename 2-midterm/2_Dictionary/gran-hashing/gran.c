@@ -45,8 +45,8 @@ int main(void){
   initDictionary(&ht);
 
   Student s1 = createStudent("Paul", "BSCS", 23100371, 2);
-  Student s2 = createStudent("Raiken", "BSCS", 23100372, 2);
-  Student s3 = createStudent("Paula", "BSCS", 23100373, 2);
+  Student s2 = createStudent("Kentward", "BSIT", 23100375, 2);
+  Student s3 = createStudent("Luis", "BSCS", 23100378, 2);
   Student s4 = createStudent("Paulul", "BSCS", 23100370, 2);
   insert(&ht, s1);
   insert(&ht, s2);
