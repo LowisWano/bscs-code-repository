@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#define MAX 20
+#define MAX 0XA
 
 typedef struct {
   int studID;
