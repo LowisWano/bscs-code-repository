@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
-#define MAX 15
+#define MAX 10
 #define EMPTY -1
 #define DELETED -2
 
@@ -25,7 +25,7 @@ int main(void){
   insert(d, 4);
   insert(d, 5);
   insert(d, 20); // test collision
-  insert(d, ); // test displacement
+  insert(d, 6); // test displacement
 
   visualize(d);
 

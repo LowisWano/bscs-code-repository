@@ -5,7 +5,6 @@
 #define MAX 20
 /**
  * Open hashing: 
- * Closed hashing: 
  * 
  */
 
