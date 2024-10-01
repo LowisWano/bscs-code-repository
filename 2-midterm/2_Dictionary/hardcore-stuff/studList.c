@@ -1,3 +1,6 @@
+/**
+ * This problem has file operations, you could either replace it with a populate function or just do it anyways
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
