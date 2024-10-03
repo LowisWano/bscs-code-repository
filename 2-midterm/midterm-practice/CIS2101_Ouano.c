@@ -416,8 +416,8 @@ studSet * removeInactiveStudents(dcismDict D) {
  **********************************************************************************/
 void displayStudSets(studSet S[]) {
     //Write your code 
-    printf("Inactive Students\n");
     printf("--------------------------------------------------------------------------------------------------------------\n");
+    printf("\nInactive Students\n");
     printf("%-13s", "IDNumber");
     printf("%-13s", "FName");
     printf("%-13s", "LName");
