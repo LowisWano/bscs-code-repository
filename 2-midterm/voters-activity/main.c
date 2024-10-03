@@ -11,19 +11,23 @@ int main(void){
   int i;
   printf("People data: \n");
   for(i=0;i<P.count; i++){
-    printf("%s\n", P.list[i].name);
+    printf("id: %d - %s - %s\n", P.list[i].id,P.list[i].name, P.list[i].add.city);
   }
   printf("\n");
 
-   StackLList S = getVoters(P, "NewYork");
-   displayStackLList(S);
+  String city;
+  strcpy(city, "NewYork");
+  
+  StackLList S = getVoters(P, city);
+  displayStackLList(S);
   
   initializeOpenDict(&OD);
   populateOpenDict(&OD);
-   String *names = getNames(OD, "NewYork");
-   displayNames(names);
+  String *names = getNames(OD, city);
+  displayNames(names);
   
-  // QueuePersonList Q;
-  // initializeQueueList(&Q);
-  // getAllUniqueVoters(S, &Q);
+   QueuePersonList Q;
+   initializeQueueList(&Q);
+  getAllUniqueVoters(S, &Q);
+  displayQueue(Q);
 }

@@ -60,7 +60,7 @@ void populateOpenDict(PersonOpenDict *OD);
 void intializeStackLList(StackLList *OD);
 void populateStackLList(StackLList *OD);
 
-void initializeQueueListQueueList(QueuePersonList *Q);
+void initializeQueueList(QueuePersonList *Q);
 
 void displayStackLList(StackLList S);
 void displayNames(String *names);

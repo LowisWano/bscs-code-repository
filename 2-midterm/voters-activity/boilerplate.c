@@ -4,18 +4,7 @@
  * PROBLEM 1: Get all the voters living in the specified city and store it to a StackLList to be returned
  */
 StackLList getVoters(Personlist vlist, String city){
-  // code here
-  StackLList S = NULL, temp;
-  int i;
-  for(i=0;i<vlist.count;i++){
-      if(strcmp(vlist.list[i].add.city, city)==0){
-          temp = malloc(sizeof(NodeType));
-          temp->p = vlist.list[i];
-          temp->link = S;
-          S = temp;
-      }
-  }
-  return S;
+  // code here...
 }
 
 /**
@@ -23,80 +12,14 @@ StackLList getVoters(Personlist vlist, String city){
  * Add a sentinel using an empty string
  */
 String* getNames(PersonOpenDict d, String city){
-   // code here
-   /*
-        Given an open dictionary,
-        use hash(id) to get its location 
-        since it is an open dictionary, traverse thru the list and check if conditions are met.
-        if met, insert to array of strings
-   */
-   String *names = malloc(sizeof(String)*10);
-   int n = 0, i;
-   for(i=0;i<=10;i++){
-       int h = hash(i);\
-       NodePtr trav;
-       for(trav=d.list[h];trav!=NULL; trav=trav->link){
-           if(trav->p.id == i && strcmp(trav->p.add.city, city) == 0){
-            //   printf("id: %d - hash:%d\n",i, h);
-               strcpy(names[n++], trav->p.name);
-           }
-       }
-   }
-   return names;
+   // code here...
 }   
 
 /**
  * PROBLEM 3: Get all unique voters in StackLList and store it to a QueuePersonList
  */
 void getAllUniqueVoters(StackLList S, QueuePersonList *Q){
-    /*
-        move stack to tempStack
-        insertLastUnique top to open dictionary
-        if successfull, it is unique, therefore enqueue
-        return tempstack to orig stack
-    */
-    StackLList tempStack = NULL, holder;
-    NodePtr *trav, tempQ;
-    PersonOpenDict OD;
-    initializeOpenDict(&OD);
-    
-    while(S!=NULL){
-        // insert to dictionary
-        int h = hash(S->p.id);
-        for(trav=&(OD.list[h]); *trav!=NULL && (*trav)->p.id != S->p.id; trav=&(*trav)->link){}    
-        if(*trav==NULL){
-            // insertLast
-            *trav = malloc(sizeof(NodeType));
-            (*trav)->p = S->p;
-            (*trav)->link = NULL;
-            
-            // enqueue
-            tempQ = malloc(sizeof(NodeType));
-            tempQ->p = S->p;
-            tempQ->link = NULL;
-            
-            if(Q->head == NULL){
-                Q->head = tempQ;
-                Q->tail = tempQ;
-            }else{
-                Q->tail->link = tempQ;
-                Q->tail = tempQ;
-            }
-        }
-        
-        // move stack
-        holder = tempStack;
-        tempStack = S;
-        S = S->link;
-        tempStack->link = holder;
-    }
-    
-    while(tempStack!=NULL){
-        holder = S;
-        S = tempStack;
-        tempStack = tempStack->link;
-        S->link = holder;
-    }
+    // code here....
 }
 
 
