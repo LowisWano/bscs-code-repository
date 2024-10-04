@@ -76,12 +76,11 @@ void getAllUniqueVoters(StackLList S, QueuePersonList *Q){
             tempQ->link = NULL;
             
             if(Q->head == NULL){
-                Q->head = tempQ;
-                Q->tail = tempQ;
+                Q->head = tempQ;           
             }else{
                 Q->tail->link = tempQ;
-                Q->tail = tempQ;
             }
+            Q->tail = tempQ;
         }
         
         // move stack
@@ -121,11 +120,10 @@ void displayQueue(QueuePersonList Q){
         
         if(tempQ.head == NULL){
             tempQ.head = holder;
-            tempQ.tail = holder;
         }else{
             tempQ.tail->link = holder;
-            tempQ.tail = holder;
         }
+        tempQ.tail = holder;
     }
     Q.tail = NULL;
     
@@ -195,7 +193,7 @@ void populateOpenDict(PersonOpenDict *OD){
         {5, "Eve", {"Phoenix", 85001}},
         {6, "Frank", {"LosAngeles", 90001}},      // Same city as Alice
         {7, "Grace", {"NewYork", 10001}},         // Same city as John
-        {8, "John", {"NewYork", 10001}},          // Duplicate of John
+        {8, "Joshue", {"NewYork", 10001}},          // Duplicate of John
         {9, "Bob", {"Chicago", 60601}},           // Duplicate of Bob
         {10, "Leo", {"Chicago", 60601}},          // Same city as Bob
         {11, "Karen", {"Phoenix", 85001}},        // Same city as Eve

@@ -5,6 +5,17 @@
  */
 StackLList getVoters(Personlist vlist, String city){
   // code here...
+  StackLList S = NULL, temp;
+  int i;
+  for(i=0;i<vlist.count;i++){
+    if(strcmp(vlist.list[i].add.city,city)==0){
+      temp = malloc(sizeof(NodeType));
+      temp->p = vlist.list[i];
+      temp->link = S;
+      S = temp;
+    }
+  }
+  return S;
 }
 
 /**
@@ -12,7 +23,23 @@ StackLList getVoters(Personlist vlist, String city){
  * Add a sentinel using an empty string
  */
 String* getNames(PersonOpenDict d, String city){
-   // code here...
+   /*
+      from id 1 to 10, find each from the dictionary using hash, if person matches id and city, insert to name
+   */
+   String *names = malloc(sizeof(String)*10);
+   int count;
+   NodePtr trav;
+   int i;
+  for(i=0;i<=10;i++){
+    int h = hash(i);
+    for(trav=d.list[h];trav!=NULL;trav=trav->link){
+      if(trav->p.id == i && strcmp(trav->p.add.city, city)==0){
+        strcpy(names[count++], trav->p.name);
+      }
+    }
+  }
+  strcpy(names[count], "\0");
+  return names;
 }   
 
 /**
@@ -20,6 +47,56 @@ String* getNames(PersonOpenDict d, String city){
  */
 void getAllUniqueVoters(StackLList S, QueuePersonList *Q){
     // code here....
+    /*
+      instructions: given an existing stack and an empty queue, navigate thru stack and enqueue, make sure all is unique
+
+      make copy of top and insertLastUnique to open dictionary,
+      if successfull, it is uniquem 
+        make copy and enqueue
+      
+      transfer to tempstack
+
+      transfer all back
+    */
+  PersonOpenDict OD;
+  initializeOpenDict(&OD);
+  StackLList tempStack = NULL, holder;
+  NodePtr temp, tempQ, *trav;
+  while(S!=NULL){
+    // insert to dictionary
+    int h = hash(S->p.id);
+    for(trav=&(OD.list[h]); *trav!=NULL && (*trav)->p.id != S->p.id;trav=&(*trav)->link){}
+    if(*trav==NULL){
+      *trav=malloc(sizeof(NodeType));
+      (*trav)->p=S->p;
+      (*trav)->link=NULL;
+
+      // enqueue 
+      tempQ = malloc(sizeof(NodeType));
+      tempQ->p=S->p;
+      tempQ->link = NULL;
+
+      if(Q->head == NULL){
+        Q->head = tempQ;
+      }else{
+        Q->tail->link = tempQ;
+      }
+      Q->tail = tempQ;
+    }
+
+    // traverse stack
+    holder = tempStack;
+    tempStack = S;
+    S=S->link;
+    tempStack->link = holder;
+  }
+  // transfer all back
+  while(tempStack !=NULL){
+    holder = S;
+    S = tempStack;
+    tempStack=tempStack->link;
+    S->link = holder;
+  }
 }
 
 
@@ -68,7 +145,7 @@ void initializePersonList(Personlist *P){
 void populatePersonList(Personlist *P) {
     Person persons[] = {
         {1, "John", {"NewYork", 10001}},
-        {2, "Alice", {"LosAngeles", 90001}},
+        {2, "Alice", {"NewYork", 90001}},
         {3, "Bob", {"Chicago", 60601}},
         {4, "Diana", {"Houston", 77001}},
         {5, "Eve", {"Phoenix", 85001}},
@@ -79,9 +156,9 @@ void populatePersonList(Personlist *P) {
         {10, "Leo", {"Chicago", 60601}},          // Same city as Bob
         {11, "Karen", {"Phoenix", 85001}},        // Same city as Eve
         {12, "Ivy", {"SanDiego", 92101}},
-        {13, "Mia", {"FortWorth", 76101}},
+        {13, "Mia", {"NewYork", 76101}},
         {14, "Diana", {"Houston", 77001}},        // Duplicate of Diana
-        {15, "Oscar", {"Charlotte", 28201}},
+        {15, "Oscar", {"NewYork", 28201}},
     };
 
     int numPersons = sizeof(persons) / sizeof(persons[0]);
@@ -112,20 +189,20 @@ int hash(int id){
 void populateOpenDict(PersonOpenDict *OD){
     Person persons[] = {
         {1, "John", {"NewYork", 10001}},
-        {2, "Alice", {"LosAngeles", 90001}},
+        {2, "Alice", {"NewYork", 90001}},
         {3, "Bob", {"Chicago", 60601}},
         {4, "Diana", {"Houston", 77001}},
         {5, "Eve", {"Phoenix", 85001}},
         {6, "Frank", {"LosAngeles", 90001}},      // Same city as Alice
         {7, "Grace", {"NewYork", 10001}},         // Same city as John
-        {8, "John", {"NewYork", 10001}},          // Duplicate of John
+        {1, "John", {"NewYork", 10001}},          // Duplicate of John
         {9, "Bob", {"Chicago", 60601}},           // Duplicate of Bob
         {10, "Leo", {"Chicago", 60601}},          // Same city as Bob
         {11, "Karen", {"Phoenix", 85001}},        // Same city as Eve
         {12, "Ivy", {"SanDiego", 92101}},
-        {13, "Mia", {"FortWorth", 76101}},
+        {13, "Mia", {"NewYork", 76101}},
         {14, "Diana", {"Houston", 77001}},        // Duplicate of Diana
-        {15, "Oscar", {"Charlotte", 28201}},
+        {15, "Oscar", {"NewYork", 28201}},
     };
 
     int numPersons = sizeof(persons) / sizeof(persons[0]);
@@ -177,9 +254,8 @@ void displayStackLList(StackLList S){
     // code here
     StackLList tempStack = NULL, temp;
     printf("Stack elements:\n");
-    
     while(S!=NULL){
-        printf("%s - id: %d\n", S->p.name, S->p.id);
+        printf("%s - id: %d - %s\n", S->p.name, S->p.id, S->p.add.city);
         temp = tempStack;
         tempStack = S;
         S = S->link;
