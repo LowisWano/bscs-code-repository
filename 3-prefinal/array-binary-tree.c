@@ -1,0 +1,1 @@
+// array of structures with left child and right child containing indexes
