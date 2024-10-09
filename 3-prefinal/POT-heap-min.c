@@ -73,7 +73,6 @@ void insert(Heap *H, int elem){
     // insert
     H->Elem[++H->last] = elem;
 
-    // swap child and parent if POT is not satisfied
     int temp;
     int c = H->last;
     int p = (c-1)/2;
