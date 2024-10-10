@@ -37,7 +37,10 @@ int main(void){
 
   printf("%d ", T.root);
   preorder(T, T.nodes[T.root]);
-  
+  printf("\n");
+
+  printf("%d ", T.root);
+  inorder(T, T.nodes[T.root]);
   printf("\n");
   return 0;
 }
@@ -57,12 +60,12 @@ void preorder(Tree T, Node node){
   }
 }
 
-// void inorder(Tree T, Node node){
-//   if(node!=NULL){
-//     Node trav;
-//     for(trav=T)
-//   }
-// }
+void inorder(Tree T, Node node){
+  if(node!=NULL){
+    inorder(T, T.nodes[node->elem]);
+    for()
+  }
+}
 
 void insert(int elem, int parent, Tree *T){
   if(elem >= 0 && elem < MAX){
