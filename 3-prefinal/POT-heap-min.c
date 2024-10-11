@@ -67,7 +67,6 @@ void preorder(Heap H, int node){
 }
 
 void insert(Heap *H, int elem){
-
   // check if last < max
   if(H->last < MAX){
     H->Elem[++H->last] = elem;
