@@ -12,6 +12,7 @@ void insert(Heap *H, int elem);
 void preorder(Heap H, int node);
 void inorder(Heap H, int node);
 void postorder(Heap H, int node);
+void delete(Heap *H, int elem);
 
 int main(void){
   Heap H;
@@ -39,6 +40,10 @@ int main(void){
   postorder(H, 0);
 
   printf("\n");
+}
+
+void delete(Heap *H, int elem){
+  // ...
 }
 
 void postorder(Heap H, int node){
