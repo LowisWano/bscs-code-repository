@@ -27,19 +27,20 @@ typedef struct{
   8 - Pedestrian Diversion
 */
 
-// helper functions
+// Helper Functions
 Traffic createTraffic(int p, char *direction, char *lane, int time);
 void displayTraffic(Traffic t);
 
-// data functions
+// Problem Functions
 void initTrafficData(Traffic list[], int count);
 void insertTrafficDataMinHeap(Heap *H);
+void calculatePedestrianTime(Heap *H);
 
-// POT operations
+// POT Operations
 void initHeap(Heap *H);
 void insert(Heap *H, Traffic t);
 void preorder(Heap H, int node);
-void deleteMin(Heap *H, int node);
+Traffic deleteMin(Heap *H, int node);
 
 int main(void){
   Traffic list[6];
@@ -53,11 +54,16 @@ int main(void){
   list[4] = createTraffic(3, "right", "main", 20);
   list[5] = createTraffic(7, "pedestrian", "main", 10);
 
-  initTrafficData(list, 6);	
+  initTrafficData(list, 6);
   insertTrafficDataMinHeap(&H);
   preorder(H, 0);
 
   return 0;
+}
+
+// delete until Heap is empty
+Traffic deleteMin(Heap *H, int node){
+
 }
 
 void preorder(Heap H, int node){
@@ -88,7 +94,7 @@ void insert(Heap *H, Traffic t){
 
 void insertTrafficDataMinHeap(Heap *H){
   FILE *fp;
-  fp = fopen("scenarios.dat", "rb");  //read
+  fp = fopen("traffic.dat", "rb");  //read
   if(fp != NULL){
     Traffic t;
     while(fread(&t, sizeof(Traffic), 1, fp)){
@@ -100,7 +106,7 @@ void insertTrafficDataMinHeap(Heap *H){
 
 void initTrafficData(Traffic list[], int count){
   FILE *fp;
-  fp = fopen("scenarios.dat", "wb");  //write
+  fp = fopen("traffic.dat", "wb");  //write
 
   if(fp != NULL){
   	fwrite(list, sizeof(Traffic), 6, fp);
