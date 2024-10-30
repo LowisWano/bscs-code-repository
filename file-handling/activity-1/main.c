@@ -34,13 +34,13 @@ void displayTraffic(Traffic t);
 // Problem Functions
 void initTrafficData(Traffic list[], int count);
 void insertTrafficDataMinHeap(Heap *H);
-void calculatePedestrianTime(Heap *H);
+int calculatePedestrianTime(Heap *H);
 
 // POT Operations
 void initHeap(Heap *H);
 void insert(Heap *H, Traffic t);
 void preorder(Heap H, int node);
-Traffic deleteMin(Heap *H, int node);
+Traffic deleteMin(Heap *H);
 
 int main(void){
   Traffic list[6];
@@ -56,19 +56,40 @@ int main(void){
 
   initTrafficData(list, 6);
   insertTrafficDataMinHeap(&H);
-  preorder(H, 0);
+  // preorder(H, 0);
 
+  int i;
+  for(i=0;i<6; i++){
+    displayTraffic(H.Elem[i]);
+  }
   return 0;
 }
 
-// delete until Heap is empty
-Traffic deleteMin(Heap *H, int node){
+int calculatePedestrianTime(Heap *H){
+  int time = 0;
+  while(H->Elem[0].priority != 7){
+    time += H->Elem[0].time;
+    deleteMin(H);
+  }
+  return time;
+}
 
+// delete root and shift elements
+Traffic deleteMin(Heap *H){
+  if(H->last >= 0){
+
+    Traffic temp;
+    int LC = (0*2)+1;
+    int RC = (0*2)+2;
+    int smallerChild = (H->Elem[LC].priority) < (H->Elem[RC].priority) ? LC : RC;
+
+
+  }
 }
 
 void preorder(Heap H, int node){
   if(node <= H.last){
-    printf("prio: %-10d - %s %s\n", H.Elem[node].priority, H.Elem[node].direction, H.Elem[node].lane);
+    displayTraffic(H.Elem[node]);
     preorder(H, (node*2)+1);
     preorder(H, (node*2)+2);
   }
@@ -123,7 +144,12 @@ void initHeap(Heap *H){
 }
 
 void displayTraffic(Traffic p){
-	printf("%-20s %s\n", p.direction, p.lane);
+  if(p.priority != -1){
+    printf("prio: %-3d - %s %s\n", p.priority, p.direction, p.lane);
+  }else{
+    printf("Empty\n");
+  }
+	
 }
 
 Traffic createTraffic(int pri, char *direction, char *lane, int t){
