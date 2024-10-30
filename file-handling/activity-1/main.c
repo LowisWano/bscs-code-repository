@@ -41,6 +41,7 @@ void initHeap(Heap *H);
 void insert(Heap *H, Traffic t);
 void preorder(Heap H, int node);
 Traffic deleteMin(Heap *H);
+void heapifyMin(Heap *H, int parent, int last);
 
 int main(void){
   Traffic list[6];
@@ -51,40 +52,62 @@ int main(void){
   list[1] = createTraffic(5, "left", "diversion", 40);
   list[2] = createTraffic(1, "straight", "main", 60);
   list[3] = createTraffic(6, "right", "diversion", 30);
-  list[4] = createTraffic(3, "right", "main", 20);
+  list[4] = createTraffic(2, "left", "main", 20);
   list[5] = createTraffic(7, "pedestrian", "main", 10);
 
   initTrafficData(list, 6);
   insertTrafficDataMinHeap(&H);
   // preorder(H, 0);
 
-  int i;
-  for(i=0;i<6; i++){
-    displayTraffic(H.Elem[i]);
-  }
-  return 0;
-}
+  
 
-int calculatePedestrianTime(Heap *H){
-  int time = 0;
-  while(H->Elem[0].priority != 7){
-    time += H->Elem[0].time;
-    deleteMin(H);
-  }
-  return time;
+  printf("It takes %d seconds for the pedestrian on the main road to cross", calculatePedestrianTime(&H));
+  return 0;
 }
 
 // delete root and shift elements
 Traffic deleteMin(Heap *H){
   if(H->last >= 0){
-
-    Traffic temp;
-    int LC = (0*2)+1;
-    int RC = (0*2)+2;
-    int smallerChild = (H->Elem[LC].priority) < (H->Elem[RC].priority) ? LC : RC;
-
-
+    int last = H->last;
+    Traffic temp = H->Elem[0];
+    H->Elem[0] = H->Elem[H->last];
+    H->Elem[H->last--] = temp;
+    heapifyMin(H, 0, --last);
   }
+}
+
+void heapifyMin(Heap *H, int parent, int last){
+  int LC = (parent*2)+1;
+  int RC = (parent*2)+2;
+  int smallest = parent;
+
+  if(LC <= last && H->Elem[LC].priority < H->Elem[smallest].priority){
+    smallest = LC;
+  }
+  if(RC <= last && H->Elem[RC].priority < H->Elem[smallest].priority){
+    smallest = RC;
+  }
+
+  if(smallest != parent){
+    Traffic temp = H->Elem[parent];
+    H->Elem[parent] = H->Elem[smallest];
+    H->Elem[smallest] = temp;
+    heapifyMin(H, smallest, last);
+  } 
+}
+
+int calculatePedestrianTime(Heap *H){
+  int time = 0;
+  while(H->last >= 0){
+    int j;
+    for(j=0;j<=H->last; j++){
+      displayTraffic(H->Elem[j]);
+    }
+    printf("\n");
+    time += H->Elem[0].time;
+    deleteMin(H);
+  }
+  return time;
 }
 
 void preorder(Heap H, int node){
