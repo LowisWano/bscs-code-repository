@@ -57,10 +57,7 @@ int main(void){
 
   initTrafficData(list, 6);
   insertTrafficDataMinHeap(&H);
-  // preorder(H, 0);
-
-  
-
+ 
   printf("It takes %d seconds for the pedestrian on the main road to cross", calculatePedestrianTime(&H));
   return 0;
 }
@@ -98,7 +95,7 @@ void heapifyMin(Heap *H, int parent, int last){
 
 int calculatePedestrianTime(Heap *H){
   int time = 0;
-  while(H->last >= 0){
+  while(H->last > 0){
     int j;
     for(j=0;j<=H->last; j++){
       displayTraffic(H->Elem[j]);
@@ -168,7 +165,7 @@ void initHeap(Heap *H){
 
 void displayTraffic(Traffic p){
   if(p.priority != -1){
-    printf("prio: %-3d - %s %s\n", p.priority, p.direction, p.lane);
+    printf("prio: %-3d - %s %s - %d seconds\n", p.priority, p.direction, p.lane, p.time);
   }else{
     printf("Empty\n");
   }
