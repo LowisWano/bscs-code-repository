@@ -10,6 +10,7 @@ typedef struct{
 void initHeap(Heap *H);
 void displayHeap(Heap H);
 void heapifyMin(Heap *H);
+void deleteMin(Heap *H);
 
 int main(void) {
   
@@ -21,11 +22,21 @@ int main(void) {
   }
   H.last = 9;
   printf("\n");
-  
+
   heapifyMin(&H);
   displayHeap(H);
 
+  deleteMin(&H);
+  displayHeap(H);
   return 0;
+}
+
+void deleteMin(Heap *H){
+  int temp = H->Elem[0];
+  H->Elem[0] = H->Elem[H->last];
+  H->Elem[H->last] = temp;
+  H->last--;
+  heapifyMin(H);
 }
 
 void heapifyMin(Heap *H){
