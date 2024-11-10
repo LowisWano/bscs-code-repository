@@ -10,33 +10,52 @@ typedef struct{
 void initHeap(Heap *H);
 void displayHeap(Heap H);
 void heapifyMin(Heap *H);
-void deleteMin(Heap *H);
+int deleteMin(Heap *H);
+void populateData(Heap *H);
+void heapSort(Heap *H, int arr[]);
 
 int main(void) {
   
   Heap H;
-  int fixedValues[10] = {23, 45, 12, 56, 78, 89, 34, 67, 90, 11};
+  
+  populateData(&H);
+  int sortedArray[10];
+  
+  heapSort(&H, sortedArray);
+
   for(int i = 0; i < 10; i++) {
-    printf("%d ", fixedValues[i]);
-    H.Elem[i] = fixedValues[i];
+    printf("%d ", sortedArray[i]);
   }
-  H.last = 9;
   printf("\n");
-
-  heapifyMin(&H);
-  displayHeap(H);
-
-  deleteMin(&H);
-  displayHeap(H);
+  
   return 0;
 }
 
-void deleteMin(Heap *H){
-  int temp = H->Elem[0];
+void heapSort(Heap *H, int arr[]){
+  int i=0;
+  heapifyMin(H);
+  while(H->last >= 0){
+    arr[i++] = deleteMin(H);
+  }
+}
+
+void populateData(Heap *H){
+  int fixedValues[10] = {23, 45, 12, 56, 78, 89, 34, 67, 90, 11};
+  for(int i = 0; i < 10; i++) {
+    printf("%d ", fixedValues[i]);
+    H->Elem[i] = fixedValues[i];
+  }
+  printf("\n");
+  H->last = 9;
+}
+
+int deleteMin(Heap *H){
+  int root = H->Elem[0];
   H->Elem[0] = H->Elem[H->last];
-  H->Elem[H->last] = temp;
+  H->Elem[H->last] = root;
   H->last--;
   heapifyMin(H);
+  return root;
 }
 
 void heapifyMin(Heap *H){
@@ -60,9 +79,13 @@ void heapifyMin(Heap *H){
 }
 
 void displayHeap(Heap H){
-  int i;
-  for(i=0;i<=H.last;i++){
-    printf("%d ", H.Elem[i]);
+  if(H.last >= 0){
+    int i;
+    for(i=0;i<=H.last;i++){
+      printf("%d ", H.Elem[i]);
+    }
+  }else{
+    printf("heap empty!");
   }
   printf("\n");
 }
