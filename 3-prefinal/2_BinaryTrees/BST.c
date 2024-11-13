@@ -22,15 +22,37 @@ void postorder(Tree T);
 int main(void){
 
   Tree T;
-  int data[MAX] = {1, 5, 3, 7, 4, 2, 8, 5, 9, 6};
+  int data[MAX] = {5, 1, 3, 7, 4, 2, 8, 5, 9, 6};
   populateTree(&T, data);
   preorder(T);
-  delete(&T, 5);
   printf("\n");
-  preorder(T);
+  inorder(T);
   printf("\n");
+  postorder(T);
+  printf("\n");
+  // delete(&T, 5);
+  // printf("\n");
+  // preorder(T);
+  // printf("\n");
   return 0;
 }
+
+void inorder(Tree T){
+  if(T!=NULL){ 
+    inorder(T->LC);
+    printf("%d ", T->data);
+    inorder(T->RC);
+  }
+}
+
+void postorder(Tree T){
+  if(T!=NULL){ 
+    postorder(T->LC);
+    postorder(T->RC);
+    printf("%d ", T->data);
+  }
+}
+
 
 void preorder(Tree T){
   if(T!=NULL){
