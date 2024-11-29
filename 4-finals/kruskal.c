@@ -3,6 +3,12 @@
 #define MAX_ELEMS 99
 #define X 999
 
+/**
+ * KRUSKAL'S ALGORITHM
+ * 1. pick the edges with the smallest weight until all vertices have an edge
+ * 2. no cycle
+ */
+
 typedef int AdjacencyMatrix[MAX][MAX];
 
 typedef struct{
@@ -27,6 +33,13 @@ void displayEdgeList(edgeList E);
 MST MST_Kruskal(AdjacencyMatrix M);
 void combineComponent(int comp[], int u, int w);
 void displayMST(MST E);
+
+int find(int comp[], int x) {
+    while(comp[x] != x) {
+        x = comp[x];
+    }
+    return x;
+}
 
 int main(void){
 
@@ -75,9 +88,9 @@ MST MST_Kruskal(AdjacencyMatrix M){
   for(i=0; i<E.count; i++){
     int u = E.edges[i].u;
     int w = E.edges[i].w;
-    int uVal = comp[u];
-    int wVal = comp[w];
-    if(comp[u] != comp[w]){
+    int rootU = find(comp, u);
+    int rootW = find(comp, w);
+    if(rootU != rootW){
       combineComponent(comp, u, w);
       mst.edges[mst.count++] = E.edges[i];
       mst.totalCost += E.edges[i].weight;
