@@ -47,24 +47,80 @@ int main() {
 // Function to compare flights by their cost (used in sorting)
 int compareFlights(const void *a, const void *b) {
     // TODO: Implement comparison logic for sorting flights by cost
-    return 0;
+    Flight *x = (Flight*) a;
+    Flight *y = (Flight*) b;
+    return x->cost - y->cost;
 }
 
 // Function to find the root of a set (with path compression)
 int find(Subset subsets[], int i) {
     // TODO: Implement find with path compression
-    return 0;
+    int x = i;
+    for(; x != subsets[x].parent; x = subsets[x].parent){
+      printf("x: %d\n", x);
+    }
+    return x;
 }
 
 // Function to union two sets (by rank)
 void unionSets(Subset subsets[], int x, int y) {
     // TODO: Implement union by rank
+  if(subsets[x].rank > subsets[y].rank){
+    subsets[y].parent = x;
+  }else if(subsets[x].rank < subsets[y].rank){
+    subsets[x].parent = y;
+  }else{
+    subsets[y].parent = x;
+    subsets[x].rank++;
+  }
 }
 
 // Function to compute the MST using Kruskal's algorithm
 void kruskalMST(Flight flights[], int numFlights, int numCities) {
-    // TODO: Sort flights by cost
-    // TODO: Initialize subsets
-    // TODO: Iterate through sorted flights and construct the MST
-    // TODO: Print the MST and total cost
+  // TODO: Sort flights by cost
+  int i, j;
+  for(i=0;i<numFlights-1;i++){
+    for(j=0;j<numFlights-1;j++){
+      if(compareFlights(&flights[j], &flights[j+1]) > 0){
+        Flight temp = flights[j];
+        flights[j] = flights[j+1];
+        flights[j+1] = temp;
+      }
+    }
+  }
+
+  // TODO: Initialize subsets
+  Subset comp[numCities];
+  for(i=0;i<numCities;i++){
+    Subset v;
+    v.parent = i;
+    v.rank = 0;
+    comp[i] = v;
+  }
+
+  // TODO: Iterate through sorted flights and construct the MST
+  Flight MST[MAX_FLIGHTS];
+  int count = 0;
+  int totalCost = 0;
+
+  for(i=0;i<numFlights;i++){
+    int x = find(comp, flights[i].source);
+    int y = find(comp, flights[i].destination);
+    if(x != y){
+      unionSets(comp, x, y);
+      MST[count++] = flights[i];
+      totalCost += flights[i].cost;
+    }
+  }
+
+  // TODO: Print the MST and total cost
+  if(count != numCities-1){
+    printf("The graph is not fully connected; MST cannot be formed.\n");
+  }else{
+    printf("Minimum Spanning Tree:\n");
+    for(i=0;i<count;i++){
+      printf("Edge: %d - %d, Cost: %d\n", MST[i].source, MST[i].destination, MST[i].cost);
+    }
+    printf("\nTotal cost of the MST: %d\n", totalCost);
+  }
 }

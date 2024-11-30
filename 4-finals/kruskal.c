@@ -71,6 +71,12 @@ void combineComponent(int comp[], int u, int w) {
     }
 }
 
+/**
+  Given an edgeList (or given a matrix where you have to make an edgeList out of it), sort it from least to greatest
+ 
+  Use union-find approach to track connected components in a graph. Only union() if the root of the two vertices are different
+  
+ */
 MST MST_Kruskal(AdjacencyMatrix M){
   edgeList E = createEdgeList(M);
   MST mst;
