@@ -2,11 +2,6 @@
 #define V 6
 #define X 9999
 
-typedef struct{
-  char name;
-  int weight;
-}vertex;
-
 typedef int LabeledAdjacencyMat[V][V];
 
 int minDistance(int visited[], int dist[]){
