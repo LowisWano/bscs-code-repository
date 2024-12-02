@@ -1,5 +1,5 @@
 #include<stdio.h>
-#define MAX 6
+#define MAX 5
 #define X 999
 #define MAX_ELEMS 99
 
@@ -25,12 +25,11 @@ int findRoot(int subsets[], int v);
 int main(void){
 
   Matrix M = {
-    {X, 2, X, 8, X, X},
-    {2, X, X, 5, 6, X},
-    {X, X, X, X, 9, 3},
-    {8, 5, X, X, 3, 2},
-    {X, 6, 9, 3, X, 1},
-    {X, X, 3, 2, 1, X},
+    {X, 9, X, 6, X},
+    {9, X, 3, 8, 5},
+    {X, 3, X, X, 7},
+    {6, 8, X, X, 9},
+    {X, 5, 7, 9, X}
   };
 
   edgeList E = convertMatrixToEdgeList(M);

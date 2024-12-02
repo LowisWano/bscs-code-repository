@@ -55,8 +55,8 @@ edgeList createEdges(int graph[V][V]){
 
 int findRoot(Subset subsets[], int v){
   int i=v;
-  while(i != subsets[v].parent){
-    i=subsets[v].parent;
+  while(i != subsets[i].parent){
+    i=subsets[i].parent;
   }
   return i;
 }
@@ -102,8 +102,8 @@ edgeList kruskalMST(edgeList E){
 
 int main(void){
   int graph[V][V] = {
-    {X, 2, X, 6, X},
-    {2, X, 3, 8, 5},
+    {X, 9, X, 6, X},
+    {9, X, 3, 8, 5},
     {X, 3, X, X, 7},
     {6, 8, X, X, 9},
     {X, 5, 7, 9, X}
