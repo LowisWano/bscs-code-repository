@@ -64,15 +64,17 @@ int main(void){
 void bfs(int graph[V][V], int curr, int visited[]) {
     Queue Q;
     Q.front = 0;
-    Q.rear = -1;  // Start with empty queue
+    Q.rear = -1;
     
-    // Start with first vertex
+    
     printf("%d ", curr);
     visited[curr] = 1;
     enqueue(&Q, curr);
     
+    // while the queue is not empty
     while (!isEmpty(Q)) {
-        int x = Q.conn[Q.front];  // Get vertex from queue front
+        // 
+        int x = Q.conn[Q.front];  
         dequeue(&Q);
         
         // Check all adjacent vertices
