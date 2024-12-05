@@ -35,21 +35,20 @@ void bfs(AdjacencyMatrix graph, int src){
   initQueue(&Q);
 
   int visited[V] = {0};
-  visited[src] = 1;
-  
-  enqueue(&Q, src);
 
-  // as long as there are still adjacent unvisited vertices, the queue will have elements
+  enqueue(&Q, src);
+  visited[src] = 1;
+
   while(!isEmpty(Q)){
-    // print front then dequeue
-    int x = Q.orderLine[Q.front];
-    printf("%d ", x);
+    // get value of current vertex in the queue
+    int curr = Q.orderLine[Q.front];
+    printf("%d ", curr);
     dequeue(&Q);
 
-    // check for adjacent vertices then add them to the queue
+    // check for adjacent vertices and add them to the queue and mark visited
     int y;
-    for(y=0; y<V; y++){
-      if(visited[y] == 0 && graph[x][y] != X){
+    for(y=0;y<V;y++){
+      if(visited[y] == 0 && graph[curr][y] != X){
         enqueue(&Q, y);
         visited[y] = 1;
       }
