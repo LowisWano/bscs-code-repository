@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<limits.h>
 #include<stdlib.h>
 
 #define MAX_VERTICES 5
@@ -30,9 +31,17 @@ typedef struct {
     int cost;
 } MST;
 
+
+void primsMST(AdjList L, int src);
 void displayList(AdjList L);
 void initAdjList(AdjList *L);
 void insertEdge(AdjList *L, int entry[3]);
+
+int isAllVisited(int visited[]){
+  int i;
+  for(i=0;i<MAX_VERTICES && visited[i] == 1;i++){}
+  return (i==MAX_VERTICES) ? 1 : 0;
+}
 
 void insertHeapify(MinHeapList *H, EdgeType edge){
   H->edges[++(H->lastNdx)] = edge;
@@ -99,25 +108,6 @@ EdgeType deleteMin(MinHeapList *H){
   return temp;
 }
 
-// findRoot
-int findRoot(int subsets[], int x) {
-  while (x != subsets[x]) {
-    x = subsets[x];
-  }
-  return x;
-}
-
-// union components
-void unionSubsets(int subsets[], int u, int v){
-  int prevValue = v;
-  int newValue = u;
-  for(int i=0; i<MAX_VERTICES; i++){
-    if(subsets[i] == prevValue){
-      subsets[i] = newValue;
-    }
-  }
-}
-
 void displayMinHeap(MinHeapList PQ, int totalCost) {
   printf("\n");
   for(int i = 0; i <= PQ.lastNdx; i++) {
@@ -127,33 +117,44 @@ void displayMinHeap(MinHeapList PQ, int totalCost) {
   printf("\n");
 }
 
-// use minHeap
-void kruskalMST(AdjList L){
-  MST resultMST;
-  resultMST.eList.lastNdx = -1;
-  resultMST.cost = 0;
-  
-  MinHeapList H = createMinHeap(L);
+void primsMST(AdjList L, int src){
+  MST minSpanTree;
+  minSpanTree.eList.lastNdx = -1;
+  minSpanTree.cost = 0;
+  int visited[MAX_VERTICES] = {0};
+  visited[src] = 1;
+  // while all are not visited
+  // access the index of all vertices in the visited set, find the smallest unvisited vertex among them
+  // if found, mark as visited
+  // insert to heap
 
-  int subsets[MAX_VERTICES];
-  for(int i=0; i<MAX_VERTICES; i++){
-    subsets[i] = i;
-  }
-
-  while(H.lastNdx >= 0) {
-    EdgeType e = deleteMin(&H);
-
-    int uRoot = findRoot(subsets, e.u);
-    int vRoot = findRoot(subsets, e.v);
-
-    if(uRoot != vRoot){
-      unionSubsets(subsets, e.u, e.v);
-      insertHeapify(&(resultMST.eList), e);
-      resultMST.cost += e.weight;
+  while(!isAllVisited(visited)){
+    int i;
+    int min = 9999;
+    int min_src = -1;
+    Vertex min_v;
+    for(i=0;i<MAX_VERTICES;i++){
+      if(visited[i] == 1){
+        Vertex trav;
+        for(trav=L.connections[i]; trav!=NULL; trav=trav->next){
+            if(visited[trav->label] == 0 && trav->cost < min){
+                min_src = i;
+                min = trav->cost;
+                min_v = trav;
+            }
+        }
+      }
     }
+    visited[min_v->label] = 1;
+    // insert to heap
+    EdgeType edge;
+    edge.u = i;
+    edge.v = min_v->label;
+    edge.weight = min_v->cost;
+    insertHeapify(&(minSpanTree.eList), edge);
+    minSpanTree.cost += edge.weight;
   }
-
-  displayMinHeap(resultMST.eList, resultMST.cost);
+  displayMinHeap(minSpanTree.eList, minSpanTree.cost);
 }
 
 int main(void){
@@ -178,11 +179,10 @@ int main(void){
 
   displayList(L);
 
-  kruskalMST(L);
+  primsMST(L, 0);
 
   return 0;
 }
-
 
 void insertEdge(AdjList *L, int entry[3]){
   Vertex temp = (Vertex) malloc(sizeof(VType));
