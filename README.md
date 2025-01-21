@@ -1,1 +1,2 @@
-<img src="/3-prefinal/3_PriorityQueue/maxHeapVisualized.png">
+# bscs-code-repository
+A compilation of coding exercises for my uni classes
