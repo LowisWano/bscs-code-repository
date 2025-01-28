@@ -1,46 +1,52 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-void swap(int* a, int* b) {
-    int t = *a;
-    *a = *b;
-    *b = t;
-}
-
-int partition(int arr[], int low, int high) {
-    int pivot = arr[high];   
-    int i = (low - 1);  
-
-    for (int j = low; j <= high - 1; j++) {
-        if (arr[j] <= pivot) {
-            i++; 
-            swap(&arr[i], &arr[j]);
+int hoare_partition(int arr[], int start, int end) {
+    int pivot = arr[start];
+    int i = start;
+    int j = end;
+    
+    while (i < j) {
+        // Move i forward while element is less than pivot
+        for (; arr[i] < pivot && i < end; i++);
+  
+        // Move j backward while element is greater than pivot
+        for (; arr[j] > pivot && j > start; j--);
+  
+        
+        // If pointers haven't crossed, swap elements
+        if (i < j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
     }
-    swap(&arr[i + 1], &arr[high]);
-    return (i + 1);
+    return j;
 }
 
-void quickSort(int arr[], int low, int high) {
-    if (low < high) {
-        int pi = partition(arr, low, high);
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
+void quickSort(int arr[], int start, int end) {
+    if (start < end) {
+        int p = hoare_partition(arr, start, end);
+        quickSort(arr, start, p);
+        quickSort(arr, p + 1, end);
     }
 }
 
-/* Function to print an array */
-void printArray(int arr[], int size) {
-    for (int i = 0; i < size; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
-}
 
-int main() {
-    int arr[] = {10, 7, 8, 9, 1, 5};
+int main(void) {
+    int arr[] = {3, 1, 4, 2 , 5};
     int n = sizeof(arr) / sizeof(arr[0]);
-    quickSort(arr, 0, n - 1);
-    printf("Sorted array: \n");
-    printArray(arr, n);
+    
+    printf("Original array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    
+    quickSort(arr, 0, n-1);
+    
+    printf("\nSorted array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    
     return 0;
 }
