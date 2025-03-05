@@ -22,34 +22,32 @@ int* strand_sort(int input[], int n){
   int result_size = 0;
   int orig_size = n;
 
-  int strand[n];
-
   while(n>0){
     int i, j;
 
-    // init strand arr
-    int strand_size = 0;
+    // Step 1: insertAndDelete() first element of input[] to strand[]
+    int strand[n], strand_size = 0;
     strand[strand_size++] = input[0];
     for(j=1; j<n; j++){
       input[j-1] = input[j];
     }
     n--;
 
-    // iterate thru input arr
-    
-    for(i=0;i<n;i++){
+    // Step 2: Traverse through input[] and insertAndDelete() all its elems that are > last elem of strand[]
+    for(i=0;i<n;){
       if(input[i]>strand[strand_size-1]){
         strand[strand_size++] = input[i];
-        // delete from input array
         for(j=i+1; j<n; j++){
           input[j-1] = input[j];
         }
         n--;
-        i--;
+      }else{
+        // Remember: Only move pointer when you are not deleting. If not, you will skip over an element.
+        i++;
       }
     }
 
-    // merge strand and result
+    // Step 3: Perform unionSet() to strand[] and result[]
     int temp[orig_size], temp_size=0;
     for(i=0, j=0; i<strand_size && j<result_size;){
       if(strand[i] < result[j]){
@@ -59,7 +57,6 @@ int* strand_sort(int input[], int n){
       }
     }
 
-    // strand still has elements and result reaches end first
     while(i<strand_size && j==result_size){
       temp[temp_size++] = strand[i++];
     }
