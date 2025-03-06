@@ -70,7 +70,7 @@ void test_check(int correct[], int output[], int size, int test_number, char lab
 }
 
 void test_sort_w_size(void (*sort)(int arr[], int size)) {
-    cls();
+    // cls();
     for (int i = 0; i < test_size; i++) {
         Test test = tests[i];         
 

@@ -6,13 +6,13 @@ void shell_sort(int arr[], int n){
   int i, j;
   while(gap>0){
     for(i=gap; i<n; i++){
-      int temp = arr[i];
-      for(j=i; j>=gap && arr[j-gap]>temp; j -= gap){
-        arr[j] = arr[j-gap];
+      for(j=i; j>=gap && arr[j-gap]>arr[j]; j-=gap){
+        int temp = arr[j-gap];
+        arr[j-gap] = arr[j];
+        arr[j] = temp;
       }
-      arr[j] = temp;
     }
-    gap /= 2;
+    gap = gap/2;
   }
 }
 

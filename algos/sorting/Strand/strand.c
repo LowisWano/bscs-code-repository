@@ -27,7 +27,7 @@ int* strand_sort_helper(int input[], int n) {
 
         // Step 2: Traverse through input[] and insertAndDelete() all its elems that are > last elem of strand[]
         for(i=0; i<n;) {
-            if(input[i] > strand[strand_size-1]) {
+            if(input[i] >= strand[strand_size-1]) {
                 strand[strand_size++] = input[i];
                 for(j=i+1; j<n; j++) {
                     input[j-1] = input[j];
