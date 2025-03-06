@@ -84,7 +84,7 @@ void test_sort_w_size(void (*sort)(int arr[], int size)) {
 }
 
 void test_sort_w_low_high(void (*sort)(int arr[], int low, int high)) {
-    cls();
+    // cls();
     for (int i = 0; i < test_size; i++) {
         Test test = tests[i];         
 
