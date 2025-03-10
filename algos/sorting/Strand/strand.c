@@ -1,81 +1,79 @@
 #include "../../utilities/general.h" 
 #include "../../utilities/test.h" 
 
-void strand_sort_inplace(int arr[], int size);
+void strand_sort(int arr[], int size);
 
 int main(void) {
-    test_sort_w_size(strand_sort_inplace);
+    test_sort_w_size(strand_sort);
     
     return 0;
 }
 
-int* strand_sort_helper(int input[], int n) {
-    int *result = (int*)malloc(sizeof(int)*n);
-    int result_size = 0;
-    int orig_size = n;
+void strand_sort(int arr[], int size){
+  /*
+    insertDelete first element of input to strand
+    traverse through input and insertDelete every element >= than last elem of strand
 
-    while(n > 0) {
-        int i, j;
+    merge strand and result
 
-        // Step 1: insertAndDelete() first element of input[] to strand[]
-        int strand[n], strand_size = 0;
-        strand[strand_size++] = input[0];
-        for(j=1; j<n; j++) {
-            input[j-1] = input[j];
-        }
-        n--;
+    copy result to input
 
-        // Step 2: Traverse through input[] and insertAndDelete() all its elems that are > last elem of strand[]
-        for(i=0; i<n;) {
-            if(input[i] >= strand[strand_size-1]) {
-                strand[strand_size++] = input[i];
-                for(j=i+1; j<n; j++) {
-                    input[j-1] = input[j];
-                }
-                n--;
-            } else {
-                // Remember: Only move pointer when you are not deleting. If not, you will skip over an element.
-                i++;
-            }
-        }
+  */
+  int result[size];
+  int result_size = 0;
+  int input_size = size;
+  
+  int i, j;
 
-        // Step 3: Perform unionSet() to strand[] and result[]
-        int temp[orig_size], temp_size=0;
-        for(i=0, j=0; i<strand_size && j<result_size;) {
-            if(strand[i] < result[j]) {
-                temp[temp_size++] = strand[i++]; 
-            } else {
-                temp[temp_size++] = result[j++];
-            }
-        }
-
-        while(i < strand_size && j == result_size) {
-            temp[temp_size++] = strand[i++];
-        }
-
-        while(j < result_size && i == strand_size) {
-            temp[temp_size++] = result[j++];
-        }
-
-        for(i=0; i<temp_size; i++) {
-            result[i] = temp[i];
-        }
-        result_size = temp_size;
+  while(input_size > 0){
+    // 1.
+    int strand[size], strand_size = 0;
+    strand[strand_size++] = arr[0];
+    for(i=1; i<input_size; i++){
+      arr[i-1] = arr[i];
     }
-    
-    return result;
-}
+    input_size--;
 
-void strand_sort_inplace(int arr[], int size) {
-    if (size <= 1) return;
-    
-    int *input = (int*)malloc(sizeof(int) * size);
-    memcpy(input, arr, sizeof(int) * size);
-    
-    int *sorted = strand_sort_helper(input, size);
-    
-    memcpy(arr, sorted, sizeof(int) * size);
-    
-    free(input);
-    free(sorted);
+    // 2.
+    for(i=0; i<input_size;){
+      if(arr[i]>=strand[strand_size-1]){
+        strand[strand_size++] = arr[i];
+        for(j=i+1; j<input_size; j++){
+          arr[j-1] = arr[j];
+        }
+        input_size--;
+      }else{
+        i++;
+      }
+    }
+
+    // 3. merge 
+    int temp[size];
+    int temp_size = 0;
+    for(i=0, j=0; i < strand_size && j < result_size;){
+      if(strand[i]<result[j]){
+        temp[temp_size++] = strand[i++];
+      }else{
+        temp[temp_size++] = result[j++];
+      }
+    }
+
+    while(i<strand_size && j == result_size){
+      temp[temp_size++] = strand[i++];
+    }
+
+    while(j<result_size && i == strand_size){
+      temp[temp_size++] = result[j++];
+    }
+
+    // copy back to result
+    for(i=0; i<temp_size; i++){
+      result[i] = temp[i];
+    }
+    result_size = temp_size;
+  }
+
+  for(i=0; i<size; i++){
+    arr[i] = result[i];
+  }
 }
