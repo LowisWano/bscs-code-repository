@@ -16,6 +16,7 @@ void balanceTree(AVL *root);
 void leftRotate(AVL *node);
 void rightRotate(AVL *node);
 int getNewHeight(AVL node);
+void delete(AVL *root, int data);
 
 void preorder(AVL node){
   if(node != NULL){
@@ -41,7 +42,58 @@ int main(void) {
   preorder(root);
   printf("\n");
 
+  delete(&root, 7);
+  preorder(root);
+  printf("\n");
+
   return 0;
+}
+
+void delete(AVL *root, int data){
+  if(*root != NULL){
+    if(data < (*root)->data){
+      delete(&(*root)->left, data);
+    }
+    
+    else if(data > (*root)->data){
+      delete(&(*root)->right, data);
+    }
+
+    else{
+      AVL temp = *root;
+
+      // Case 1: Node with no children or one child
+      if ((*root)->left == NULL) {
+          *root = (*root)->right;
+          free(temp);
+      }
+      else if ((*root)->right == NULL) {
+          *root = (*root)->left;
+          free(temp);
+      }
+      // Case 2: Node with two children
+      else {
+          // Find inorder successor (smallest in right subtree)
+          AVL *trav = &(*root)->right;
+          while ((*trav)->left != NULL) {
+              trav = &(*trav)->left;
+          }
+
+          (*root)->data = (*trav)->data;
+
+          temp = *trav;
+          *trav = (*trav)->right;  // Connect successor's right child or null
+          free(temp);
+      }
+
+      if (*root != NULL) {
+        (*root)->height = getNewHeight(*root);
+        balanceTree(root);
+      }
+    }
+  }else{
+    printf("element not found");
+  }
 }
 
 void insert(AVL *root, int data){
